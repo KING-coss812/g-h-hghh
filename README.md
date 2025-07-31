@@ -2,7 +2,7 @@
 graph TD
     %% Main flowchart for the two-level optimization framework
 
-    subgraph Outer_Loop [NSGA-II 优化框架 (外层)]
+    subgraph Outer_Loop
         A(开始 初始化种群) --> B{迭代次数 < 最大代数?};
         B -- 是 --> C(遗传操作 选择, 交叉, 变异);
         C --> D(合并父代与子代种群);
@@ -13,7 +13,7 @@ graph TD
         B -- 否 --> H(结束 输出帕累托最优解集);
     end
 
-    subgraph Inner_Loop [适应度评估 (内层)]
+    subgraph Inner_Loop
         E_Start(输入 单个候选解 'x') --> E_Sim1[执行长期可靠性SMC仿真];
         E_Sim1 --> E_Res1(计算 年均成本, EENS, 碳排放);
         
